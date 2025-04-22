@@ -1,0 +1,100 @@
+p {
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffb6c1; /* light pink */
+    text-shadow: 1px 1px 2px #ffe4e1; /* soft glow */
+}
+
+#top {
+    text-decoration: underline #dda0dd; /* lavender underline */
+    font-size: 28px;
+    color: #db7093; /* pale violet-red */
+}
+
+.emphasizedText {
+    font-style: italic;
+    color: #ff69b4; /* hot pink */
+    background-color: #fff0f5; /* lavender blush */
+    padding: 2px 6px;
+    border-radius: 5px;
+}
+
+body {
+    background: linear-gradient(to bottom right, #fcd4e2, #b2f5f3); /* soft pastel gradient */
+    font-family: 'Brush Script MT', cursive;
+    text-align: center;
+    border: 5px dashed #efafb8; /* playful pink border */
+    margin: 25px;
+    padding: 20px;
+    color: #4b0082; /* soft indigo for text */
+}
+
+.centered-list {
+    padding-left: 0;
+    list-style-position: outside;
+    margin: 0 auto;
+    display: table;
+    text-align: left;
+    color: #9932cc; /* amethyst purple */
+    font-size: 18px;
+}
+img {
+    width: 300px;
+    border-radius: 12px; /* optional: adds soft corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* optional: adds a soft shadow */
+  }
+  
+  .category-list {
+    list-style-type: none;
+    padding-left: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #4b4453;
+  }
+  
+  .category-list li {
+    background-color: #ffe6f0;
+    padding: 1rem;
+    margin-bottom: 1.2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(211, 107, 174, 0.15);
+  }
+  
+  .album-title {
+    display: block;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #d36bae;
+    margin-bottom: 0.5rem;
+  }
+  
+  .album-order {
+    list-style-type: decimal;
+    padding-left: 1.5rem;
+    margin-top: 0;
+    color: #6a5d7b;
+  }
+  #backToTop {
+    font-family: 'Times New Roman', Times, serif; /* If you want a romantic look */
+    font-size: 18px;
+    color: #FF8B8B; /* A soft pink (adjust to match Lover palette) */
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: #f6c6c1;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none; /* Initially hidden */
+}
+
+#backToTop:hover {
+    background-color: #f6b6b3; /* Lighter pink on hover */
+    color: white;
+}
+
+.tableau-wrapper {
+    margin: 30px auto;
+    max-width: 90%;
+    text-align: center;
+  }
+  

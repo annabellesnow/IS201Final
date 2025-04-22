@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dad Joke Guessing Game</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f8ff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+    h1 {
+      color: #333;
+    }
+    .joke-box {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 500px;
+      margin-top: 1rem;
+    }
+    .joke-setup {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+    input, button {
+      padding: 0.5rem;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+      width: 100%;
+    }
+    .result {
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+    .correct {
+      color: green;
+    }
+    .wrong {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <h1>Dad Joke Guessing Game</h1>
+  <div class="joke-box">
+    <div class="joke-setup" id="jokeSetup">Click "New Joke" to start!</div>
+    <input type="text" id="guessInput" placeholder="Guess the punchline..." disabled />
+    <button onclick="submitGuess()" id="submitBtn" disabled>Submit Guess</button>
+    <button onclick="newJoke()">New Joke</button>
+    <div class="result" id="resultText"></div>
+  </div>
+
+  <!-- Confetti JS library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <script>
+    const jokes = [
+      { setup: "Why don't skeletons fight each other?", punchline: "They don't have the guts" },
+      { setup: "What do you call cheese that isn't yours?", punchline: "Nacho cheese" },
+      { setup: "Why did the scarecrow win an award?", punchline: "Because he was outstanding in his field" },
+      { setup: "Why can't you hear a pterodactyl go to the bathroom?", punchline: "Because the 'P' is silent" },
+      { setup: "I'm reading a book about anti-gravity.", punchline: "It's impossible to put down" }
+    ];
+
+    let currentJoke = null;
+    let hasGuessed = false;
+
+    function newJoke() {
+      const index = Math.floor(Math.random() * jokes.length);
+      currentJoke = jokes[index];
+      document.getElementById("jokeSetup").innerText = currentJoke.setup;
+      document.getElementById("guessInput").value = "";
+      document.getElementById("guessInput").disabled = false;
+      document.getElementById("submitBtn").disabled = false;
+      document.getElementById("resultText").innerText = "";
+      hasGuessed = false;
+    }
+
+    function submitGuess() {
+      if (!currentJoke || hasGuessed) return;
+      const guess = document.getElementById("guessInput").value.trim().toLowerCase();
+      const actual = currentJoke.punchline.toLowerCase();
+
+      const result = document.getElementById("resultText");
+      hasGuessed = true;
+
+      if (guess === actual) {
+        result.innerHTML = `✅ Correct! Punchline: <em>${currentJoke.punchline}</em>`;
+        result.className = "result correct";
+        launchConfetti();
+      } else {
+        result.innerHTML = `❌ Nope! Punchline was: <em>${currentJoke.punchline}</em><br>Your guess: "${guess}"`;
+        result.className = "result wrong";
+      }
+
+      document.getElementById("guessInput").disabled = true;
+      document.getElementById("submitBtn").disabled = true;
+    }
+
+    function launchConfetti() {
+      confetti({
+        particleCount: 150,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+    }
+  </script>
+    <a href="scratch.html">Scratch Page</a>
+</body>
+</html>
